@@ -1,0 +1,12 @@
+.DS_Store
+.vscode/
+*.mp4
+bin/*
+cmake-build-debug/
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+.idea/
+*.ppm
+*.pgm
