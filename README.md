@@ -1,5 +1,5 @@
 # `libav-examples`
-A collection of multimedia apps using FFmpeg's libav library.
+A collection of FFmpeg libav examples.
 
 ## Usage
 #### Requires
@@ -18,7 +18,7 @@ cmake .
 ```
 gcc -L/opt/ffmpeg/lib -I/opt/ffmpeg/include/ src/mp4info.c -lavcodec -lavformat -lavfilter -lavdevice -lswresample -lswscale -lavutil -o mp4info
 
-./mp4info input.mp4
+./bin/mp4info input.mp4
 ```
 
 ## Docker
