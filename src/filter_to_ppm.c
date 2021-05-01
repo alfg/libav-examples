@@ -41,8 +41,11 @@ static int init_filters(const char *filters_descr)
 		   dec_ctx->width, dec_ctx->height, dec_ctx->pix_fmt,
 		   time_base.num, time_base.den,
 		   dec_ctx->sample_aspect_ratio.num, dec_ctx->sample_aspect_ratio.den);
+  printf("args: %s\n", args);
   ret = avfilter_graph_create_filter(&buffersrc_ctx, buffersrc, "in",
                                        args, NULL, filter_graph);
+  printf("ret: %d\n", ret);
+
   if (ret < 0) {
 	av_log(NULL, AV_LOG_ERROR, "Cannot create buffer source\n");
 	goto end;

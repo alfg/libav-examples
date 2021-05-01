@@ -178,7 +178,7 @@ int main(int argc, const char *argv[]) {
         // Save the frame into PPM format (raw rgb).
         char frame_filename[1024];
         snprintf(frame_filename, sizeof(frame_filename), "%s-%d.ppm", "frame", pCodecContext->frame_number);
-        save_ppm_frame(pFrameRGB->data[0], pFrameRGB->linesize[0], pCodecContext->width, pCodecContext->height, frame_filename);
+        save_ppm_frame(pFrame->data[0], pFrame->linesize[0], pCodecContext->width, pCodecContext->height, frame_filename);
       }
 
       if (response < 0)
@@ -207,10 +207,10 @@ static void save_ppm_frame(unsigned char *buf, int wrap, int xsize, int ysize, c
     f = fopen(filename,"w");
     // Writing the minimal required header for a ppm file format.
     // https://en.wikipedia.org/wiki/Netpbm#PPM_example
-    fprintf(f, "P6\n%d %d\n%d\n", xsize, ysize, 255);
+    fprintf(f, "P5\n%d %d\n%d\n", xsize, ysize, 255);
 
     // Line by line.
     for (i = 0; i < ysize; i++)
-        fwrite(buf + i * wrap, 1, xsize*3, f);
+        fwrite(buf + i * wrap, 1, xsize, f);
     fclose(f);
 }
